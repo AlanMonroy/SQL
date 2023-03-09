@@ -1,0 +1,11 @@
+Create table libros (ID_LIBRO Integer Primary Key, TITULO varchar2(30), AUTOR varchar2(30), Precio float);
+INSERT INTO libros values (1,'El quijote','Miguel de cervantes',454.5);
+INSERT INTO libros values (2,'Cien anos de soledad','Gabriel G. Marquez',545.4);
+INSERT INTO libros values (3,'El alquimista','Paulo Coehlo',636.3);
+
+
+CREATE OR REPLACE PROCEDURE AUMENTO(ANIO IN NUMBER, PORCENTAJE IN NUMBER) AS
+BEGIN
+    UPDATE EMPLEADOS SET SUELDO=SUELDO+(SUELDO*PORCENTAJE/100)
+    WHERE (EXTRACT(YEAR FROM CURRENT_DATE)-EXTRACT(YEAR FROM FECHA_INGRESO))<ANIO;
+END AUMENTO;
